@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <title>QR Code Game</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1 id="teszt"> </h1>
+    
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
+        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWjxAGwZDJ5aOrpOA4XL9dE5r6eiv2Gcs",
+            authDomain: "qrgame-29677.firebaseapp.com",
+            databaseURL: "https://qrgame-29677-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "qrgame-29677",
+            storageBucket: "qrgame-29677.appspot.com",
+            messagingSenderId: "689257745448",
+            appId: "1:689257745448:web:f3286f6aeb65d6a8f2391d",
+            measurementId: "G-PE0JCSMN6E"
+        };
+
+        const firebaseApp = initializeApp(firebaseConfig); 
+        const database = getDatabase(firebaseApp);
+
+        const dbRef = ref(getDatabase());
+        get(child(dbRef, 'csapatok/csapat_id_1/pontszam')).then((snapshot) => {
+        if (snapshot.exists()) {
+            console.log(snapshot.val());
+            document.getElementById("teszt").innerText += "Csapat01 pontszáma: " + snapshot.val();
+        } else {
+            console.log("No data available");
+        }
+        }).catch((error) => {
+        console.error(error);
+        });
+    </script>
+
+</body>
+
+</html>
