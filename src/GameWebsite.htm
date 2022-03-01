@@ -4,14 +4,52 @@
 <head>
     <title>QR Code Game</title>
     <meta charset="UTF-8">
+    <style>
+        table {
+            
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid black;
+            width: 60%;
+        }
+        td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+    </style>
 </head>
 
 <body>
     <h1 id="teszt"> </h1>
-    
+    <table>
+        <tr>
+            <td id = "csapatID" colspan="3">
+                Csapat01   
+            </td>
+        </tr>
+        <tr>
+            <td id = "csapatNev">
+
+            </td>
+            <td id = "eltoltottido">
+
+            </td>
+            <td id = "pontszam">
+
+            </td>
+        </tr>
+    </table>
+    <!-- <script type="module" src="./FrontEnd.js"></script>  --> <!-- Ez CORS Policy-s hibát dob -->
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
-        import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+
+        var dom_csapatID = document.getElementById("csapatID");
+        var dom_csapatNev = document.getElementById("csapatNev");
+        var dom_eltoltottido = document.getElementById("eltoltottido");
+        var dom_pontszam = document.getElementById("pontszam");
 
         const firebaseConfig = {
             apiKey: "AIzaSyBWjxAGwZDJ5aOrpOA4XL9dE5r6eiv2Gcs",
@@ -24,20 +62,45 @@
             measurementId: "G-PE0JCSMN6E"
         };
 
-        const firebaseApp = initializeApp(firebaseConfig); 
-        const database = getDatabase(firebaseApp);
+        // console.log(location.hostname);
+        // if (location.hostname === 'localhost') {
+        //     // Point to the RTDB emulator running on localhost.
+        //     config = {
+        //         databaseURL : "http://localhost:9000?ns=emulator.ui"
+        //     }
+        //     console.log("Local!");
+        //  //   connectDatabaseEmulator(database, "localhost", 9000);
+        // }  else {
+        //     console.log("Not local!");
+        // }
 
+        const firebaseApp = initializeApp(firebaseConfig); 
+        const db = getDatabase(firebaseApp);
         const dbRef = ref(getDatabase());
-        get(child(dbRef, 'csapatok/csapat_id_1/pontszam')).then((snapshot) => {
-        if (snapshot.exists()) {
-            console.log(snapshot.val());
-            document.getElementById("teszt").innerText += "Csapat01 pontszáma: " + snapshot.val();
-        } else {
-            console.log("No data available");
+        
+        var rtdb_csapatID = "csapatok/csapat_id_1";
+        var rtdb_csapatnev = rtdb_csapatID + "/csapatnev";
+        var rtdb_eltoltott_ido = rtdb_csapatID + "/eltoltottido";
+        var rtdb_pontszam = rtdb_csapatID + "/pontszam";
+
+        const ref_csapatID = ref(db, rtdb_csapatID);
+        const ref_csapatnev = ref(db, rtdb_csapatnev);
+        const ref_eltoltottido = ref(db, rtdb_eltoltott_ido);
+        const ref_pontszam = ref(db, rtdb_pontszam);
+
+
+        function updateTable(ref_field, dom_element){
+            onValue(ref_field, (snapshot) => {
+                const data = snapshot.val();
+                dom_element.innerHTML = data;
+            });
         }
-        }).catch((error) => {
-        console.error(error);
-        });
+
+        //updateTable(ref_csapatID, dom_csapatID);
+        updateTable(ref_csapatnev, dom_csapatNev);
+        updateTable(ref_eltoltottido, dom_eltoltottido);
+        updateTable(ref_pontszam, dom_pontszam);
+
     </script>
 
 </body>
