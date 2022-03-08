@@ -1,0 +1,41 @@
+{
+  "csapatok" : {
+    "csapat_id_1" : {
+      "csapatnev" : "Nev1",
+      "eltoltottido" : 345,
+      "pontszam" : 10,
+      "location" : "location00"
+    },
+    "csapat_id_2" : {
+      "csapatnev" : "Nev2",
+      "eltoltottido" : 345,
+      "pontszam" : 10,
+      "location" : "location00"
+    },
+    "csapat_id_3" : {
+      "csapatnev" : "Nev3",
+      "eltoltottido" : 345,
+      "pontszam" : 10,
+      "location" : "location00"
+    }
+  },
+  "feladatok" : {
+    "feladat_1" : {
+      "feladatcim" : "Cim",
+      "feladatszoveg" : "szoveg",
+      "pontszam" : 5
+    },
+    "feladat_2" : {
+      "feladatcim" : "Cim",
+      "feladatszoveg" : "szoveg",
+      "pontszam" : 5
+    }
+  },
+  "logok" : {
+    "log_id_1" : {
+      "allomasszam" : 0,
+      "csapat_id" : "csapat_id_1",
+      "idopont" : 0
+    }
+  }
+}
