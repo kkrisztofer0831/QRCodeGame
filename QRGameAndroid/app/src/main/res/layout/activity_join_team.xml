@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".JoinTeam">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="414dp"
+        android:layout_height="66dp"
+        android:gravity="center"
+        android:text="CSATLAKOZÁS MEGLÉVŐ CSAPATHOZ"
+        android:textColor="#C88013"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/teamNum"
+        android:layout_width="408dp"
+        android:layout_height="43dp"
+        android:gravity="center_vertical"
+        android:textColor="#000000" />
+
+    <ListView
+        android:id="@+id/teamList"
+        android:layout_width="406dp"
+        android:layout_height="349dp" />
+
+</LinearLayout>

@@ -3,7 +3,11 @@ package com.example.qrgame;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,84 +19,25 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView csapatnev, eltoltottido, pontszam, feladatcim, feladatszoveg, feladatpontszam,
-    allomasszam, csapat_id, idopont;
-
-    DatabaseReference reference;
+    Button joinTeam, newTeam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        csapatnev = findViewById(R.id.csapatnev);
-        eltoltottido = findViewById(R.id.eltoltottido);
-        pontszam = findViewById(R.id.pontszam);
-        feladatcim = findViewById(R.id.feladatcim);
-        feladatszoveg = findViewById(R.id.feladatszoveg);
-        feladatpontszam = findViewById(R.id.feladatpontszam);
-        allomasszam = findViewById(R.id.allomasszam);
-        csapat_id = findViewById(R.id.csapat_id);
-        idopont = findViewById(R.id.idopont);
+        joinTeam = findViewById(R.id.joinTeam);
+        newTeam = findViewById(R.id.newTeam);
 
-        reference = FirebaseDatabase.getInstance().getReference("csapatok");
-        reference.child("csapat_id_1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
+        joinTeam.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        Toast.makeText(MainActivity.this, "Read is succesful.", Toast.LENGTH_SHORT).show();
-                        DataSnapshot dataSnapshot = task.getResult();
-                        csapatnev.setText(String.valueOf(dataSnapshot.child("csapatnev").getValue()));
-                        eltoltottido.setText(String.valueOf(dataSnapshot.child("eltoltottido").getValue()));
-                        pontszam.setText(String.valueOf(dataSnapshot.child("pontszam").getValue()));
-                    }else {
-                        Toast.makeText(MainActivity.this, "Team Doesn't Exist.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, JoinTeam.class));
             }
         });
 
-        reference = FirebaseDatabase.getInstance().getReference("feladatok");
-        reference.child("feladat_1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        Toast.makeText(MainActivity.this, "Read is succesful.", Toast.LENGTH_SHORT).show();
-                        DataSnapshot dataSnapshot = task.getResult();
-                        feladatcim.setText(String.valueOf(dataSnapshot.child("feladatcim").getValue()));
-                        feladatszoveg.setText(String.valueOf(dataSnapshot.child("feladatszoveg").getValue()));
-                        feladatpontszam.setText(String.valueOf(dataSnapshot.child("pontszam").getValue()));
-                    }else {
-                        Toast.makeText(MainActivity.this, "Task Doesn't Exist.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        reference = FirebaseDatabase.getInstance().getReference("logok");
-        reference.child("log_id_1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()){
-                        Toast.makeText(MainActivity.this, "Read is succesful.", Toast.LENGTH_SHORT).show();
-                        DataSnapshot dataSnapshot = task.getResult();
-                        allomasszam.setText(String.valueOf(dataSnapshot.child("allomasszam").getValue()));
-                        csapat_id.setText(String.valueOf(dataSnapshot.child("csapat_id").getValue()));
-                        idopont.setText(String.valueOf(dataSnapshot.child("idopont").getValue()));
-                    }else {
-                        Toast.makeText(MainActivity.this, "Log Doesn't Exist.", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(MainActivity.this, "Failed to read", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
+
+
 }

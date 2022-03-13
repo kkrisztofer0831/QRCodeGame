@@ -4,89 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        app:srcCompat="@drawable/_e294f9a380af9e4c1a20fb9e3fcfd5acb88f297da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd807095aea0d02526cc69f0c02360c5485191e" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:gravity="center"
-        android:text="FireBase Adatbázis"
-        android:textColor="#FFC107"
-        android:textSize="30dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Csapatok" />
-
-    <TextView
-        android:id="@+id/csapatnev"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/eltoltottido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/pontszam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="BEJELENTKEZÉS"
+        android:textColor="#C88013"
+        android:textSize="23sp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="97dp" />
+        android:layout_height="45dp" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <Button
+        android:id="@+id/joinTeam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Feladatok" />
-
-    <TextView
-        android:id="@+id/feladatcim"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/feladatszoveg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/feladatpontszam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:background="#BABABA"
+        android:text="Csatalakozás egy meglévő csapathoz"
+        android:textColor="#000000" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="104dp" />
+        android:layout_height="65dp" />
 
-    <TextView
-        android:id="@+id/textView9"
+    <Button
+        android:id="@+id/newTeam"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logok" />
-
-    <TextView
-        android:id="@+id/allomasszam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/csapat_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/idopont"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:background="#FFBABABA"
+        android:text="Új csapat létrehozása"
+        android:textColor="#000000" />
 
 </LinearLayout>
