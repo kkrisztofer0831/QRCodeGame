@@ -1,11 +1,15 @@
 package com.example.qrgame;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,16 +32,29 @@ public class MainActivity extends AppCompatActivity {
 
         joinTeam = findViewById(R.id.joinTeam);
         newTeam = findViewById(R.id.newTeam);
-
-
-        joinTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, JoinTeam.class));
-            }
-        });
-
     }
 
+    public void joinTeamClick(View view){
+        showDialog();
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this)
+                .setTitle("CSATLAKOZÁS")
+                .setMessage("Hogyan szeretnél csatlakozni a meglévő csapatokhoz?")
+                .setPositiveButton("QR kód segítségével", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(MainActivity.this, CamScan.class));
+                    }
+                })
+                .setNegativeButton("Csapatok kilistázása", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(MainActivity.this, JoinTeam.class));
+                    }
+                });
+        alert.show();
+    };
 
 }
