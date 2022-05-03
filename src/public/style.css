@@ -46,7 +46,7 @@ h3{
 #loader {
     height: 0%;
     width: 90%;
-    margin: 0;
+    margin: 0 auto;
     border: 3px solid white;
     opacity: 0;
     animation-name: loader;
@@ -69,7 +69,6 @@ h3{
     bottom: 2%;
     left:2.5%;
     opacity: 1;
-    border: 2px solid red;
     animation-name: cont-in;
     animation-duration: 3.5s;
 }
@@ -102,6 +101,10 @@ nav ul li {
     float: left;
     margin-right: 20%;
     margin-top: 1%;
+    transition: 0.5s;
+}
+nav ul li:hover {
+    opacity: 60%;
 }
 table {
     table-layout: fixed;
@@ -110,12 +113,29 @@ table {
 #terkep {
     width: 100%;
     height: 88vh;
-    border: 1px solid orange;
+}
+rect {
+    border: 0;
+    fill: #505e1f;
+}
+g {
+    border: 0;
+    fill: #505e1f;
+}
+#fout {
+    
+    fill: #505e1f;
+    filter: brightness(1.4);
+}
+.zebra {
+    fill: #91a954;
+}
+.flag {
+    fill: #91a954;
 }
 #elolista {
     width: 0%;
     height: 88vh;
-    border: 1px solid green;
 }
 #elolista_cont {
     display:none;
@@ -123,35 +143,11 @@ table {
 #ranglista {
     width: 0%;
     height: 88vh;
-    border: 1px solid blue;
 }
 #ranglista_cont {
     display:none;    
 }
-#lista_Big33{
-    background-color: red;
-}
-#lista_ICU{
-    background-color: green;
-}
-#lista_Nameless{
-    background-color: yellow;
-}
-#lista_LoremIpsum{
-    background-color: blue;
-}
-#lista_AlreadyTaken{
-    background-color: orange;
-}
-#lista_Ossznep{
-    background-color: brown;
-}
-#lista_Text{
-    background-color: pink;
-}
-#lista_Angela{
-    background-color: purple;
-}
+
 
 /* ANIMACIOK */
 
@@ -175,9 +171,9 @@ table {
         transform: translateX(0%);}
 }
 @keyframes focim {
-    0% {color: white;}
-    30% {color: white;}
-    100% {color: #E3F4A3;}
+    0% {color: white;font-size: 3vw;}
+    70% {color: white;font-size: 3vw;}
+    100% {color: #E3F4A3;font-size: 2vw;}
 }
 
 @keyframes alcim {
