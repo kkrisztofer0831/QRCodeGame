@@ -1,82 +1,106 @@
 body{
-    width: 100%;
-    height: 100%;
+    width: 99%;
+    height: 99%;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #8CA336;
     animation-name: hatterszin;
     animation-duration: 3s;
+    overflow: none;
+}
+
+#title-holder {
+    z-index: 1;
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    padding-top: 8px;
+    margin: 0;
+    text-align: center;
+    top:0;
+    transform: translateY(0%);
+    left:0;
+    transform: translateX(0%);
+
+    animation-name: middle;
+    animation-duration: 3s;
+
 }
 h2{
+    display: inline-block;
     text-align: center;
     color: #E3F4A3;
-    font-size: 50px;
-    margin: 70px 0 0 0;
+    font-size: 2vw;
+    margin: 0;
     
     animation-name: focim;
     animation-duration: 3s;
 }
 h3{
-    text-align: center;
-    color: #647A14;
-    font-size: 22px;
-    margin: 0 0 60px 0;
-    padding-left: 100px;
-
+    color: #ADC964;
+    font-size: 1vw;
     animation-name: alcim;
     animation-duration: 3.5s;
+    margin: 0;
+    padding-left:10%;
 }
 #loader {
-    height: 2px;
-    width: 15px;
-    margin: 0 auto;
-    fill: red;
+    height: 0%;
+    width: 90%;
+    margin: 0;
+    border: 3px solid white;
+    opacity: 0;
+    animation-name: loader;
+    animation-duration: 1.5s;
 }
-
-div{
-    border-style: solid;
-    border-radius: 5px;
-}
-#terkep_befog{
-    background-color: gray;
-}
-#jatek_befog{
-    border: none;
-    margin: 0 20px;
-}
-#kviz_befog{
-    display: none;
-    padding: 20px;
-    background-color: gray;
-}
-#csapat_megad_befog{
-    display: block;   
-    padding: 20px;
-    background-color: gray;
-}
-#kerdesek_befog{
-    display: none;
-    padding: 20px;
-    background-color: gray;
-}
-
-#leaderboard{
-    padding: 20px;
-    background-color: gray;
-}
-table{
-    margin: auto;
-    text-align: center;
-}
-button{
+#loader div {
     background-color: white;
-    padding: 6px;
-    border-radius: 5px;
-    margin-top: 15px;
+    border: none;
+    height: 100%;
+    border-radius: 0;
+
+    animation-name: load-line;
+    animation-duration: 1.5s;
 }
-input{
-    margin-top: 10px;
-    padding: 5px;
-    background-color: lightgray;
+#contents {
+    position: absolute;
+    width: 95%;
+    height: 88vh;
+    margin: 0;
+    bottom: 2%;
+    left:2.5%;
+    opacity: 1;
+    border: 2px solid red;
+    animation-name: cont-in;
+    animation-duration: 3.5s;
+}
+#navhely {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8.5vh;
+    background-color: #5D7814;
+    margin: 0;
+
+    animation-name: navhely-be;
+    animation-duration: 3s;
+}
+nav {
+    position: absolute;
+    right: 10%;
+    width: 45%;
+    height: 5vh;
+}
+nav ul li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #E3F4A3;
+    font-weight: bolder;
+    font-size: 3vh;
+    list-style: none;
+    text-decoration: none;
+    float: left;
+    margin-right: 20%;
 }
 
 #lista_Big33{
@@ -111,7 +135,20 @@ input{
     30% {background-color: black;}
     100% {background-color: #8CA336;}
 }
-
+@keyframes middle {
+    0% {top:50%;
+        transform: translateY(-50%);
+        left:50%;
+        transform: translateX(-50%);}
+    70% {top:50%;
+        transform: translateY(-50%);
+        left:50%;
+        transform: translateX(-50%);}
+    100% {top:0%;
+        transform: translateY(0%);
+        left:0%;
+        transform: translateX(0%);}
+}
 @keyframes focim {
     0% {color: white;}
     30% {color: white;}
@@ -124,7 +161,23 @@ input{
     100% {opacity: 1;}
 }
 @keyframes loader {
+    0% {height: 15px;opacity: 0;}
+    5% {opacity: 1;}
+    95% {height: 15px;opacity: 1;}
+    100% {height: 0; opacity: 0;}
+}
+@keyframes load-line {
+    0% {width: 0%;}
+    60% {width: 60%;}
+    100% {width: 100%;}
+}
+@keyframes cont-in {
     0% {opacity: 0;}
-    50% {opacity: 0;}
+    60% {opacity: 0;}
     100% {opacity: 1;}
+}
+@keyframes navhely-be {
+    0% {top: -20%; }
+    60% {top: -20%;}
+    100% {top: 0;}
 }

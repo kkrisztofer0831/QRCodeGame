@@ -370,10 +370,26 @@
     </script>
 </head>
 <body>
-    <h2> The QR Game</h1>
-    <h3>By Legmásnaposabbak</h2>
-    <rect id="loader"></rect>
-    <table>
+    <div id="title-holder">
+        <h2> The QR Game</h1>
+        <h3>By Legmásnaposabbak</h2>
+        <div id="loader">
+            <div></div>
+        </div>
+    </div>
+    <div id="navhely"></div>
+    <nav>
+        <ul>
+            <li>Térkép</li>
+            <li>Élő lista</li>
+            <li>Ranglista</li>
+        </ul>
+    </nav>
+    <div id="contents">
+        
+    </div>
+    <!--
+    <table id="contents">
         <tr>    
             <td>
                 <div id="terkep_befog">
@@ -381,7 +397,7 @@
                         <rect id="I_epulet"     width="200" height="175" x="20" y="20" fill="black"></rect>
                         <rect id="I_epulet_bejarat"     width="60" height="30" x="90" y="195" fill="black"></rect>
                         <rect id="A_epulet"     width="430" height="125" x="270" y="20" fill="black"></rect>
-                        <rect id="A_epulet_bejarat"     width="100" height="30" x="435" y="145" fill="black"></rect> <!--x = ref_horizontal_offset + ref_width/2 - width/2--> <!--y = ref_vertical_offset + ref_height-->
+                        <rect id="A_epulet_bejarat"     width="100" height="30" x="435" y="145" fill="black"></rect> 
                         <rect id="Aula"         width="150" height="250" x="750" y="20" fill="black"></rect>
                         <rect id="fout"     width="880" height="75" x="20" y="310" fill="white" stroke="black" stroke-width="5"></rect>
                         <rect id="E_epulet"     width="100" height="150" x="600" y="425" fill="black"></rect>
@@ -421,27 +437,6 @@
                 </div>
             </td>
             <td>
-                <div id="jatek_befog">
-                    <div id="csapat_megad_befog">
-                        <h1>Csapat Bejelentkezése</h1>
-                        <input type="text" id="csapat_beker"><br>
-                        <button id="csapat_reg">Bejelentkezés</button><br>
-                    </div><br>
-                    <div id="kviz_befog">
-                        <h1>KVÍZ</h1>
-                        <!-- <div id="helyes_valaszok">
-                            Helyes Válaszok: <span id="hany_helyes_valasz">1</span>/4
-                        </div><br> -->
-                        <div id="allomas_bekuld_befog">
-                            Itt add meg az állomás QR Kódját <br> 
-                            <input id="qr_input" type="text"> <br>
-                            <button id="qr_bekuld">Beküldés</button>
-                        </div> <br>
-                        <div id="kerdesek_befog"></div>
-                    </div>
-                </div>
-            </td>
-            <td>
                 <div id="leaderboard">
                     <h1>leaderboard</h1>
                     <ul id="csapat_lista">
@@ -458,5 +453,6 @@
             </td>
         </tr>
     </table>
+    -->
 </body>
 </html>
