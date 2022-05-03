@@ -1,0 +1,130 @@
+body{
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #8CA336;
+    animation-name: hatterszin;
+    animation-duration: 3s;
+}
+h2{
+    text-align: center;
+    color: #E3F4A3;
+    font-size: 50px;
+    margin: 70px 0 0 0;
+    
+    animation-name: focim;
+    animation-duration: 3s;
+}
+h3{
+    text-align: center;
+    color: #647A14;
+    font-size: 22px;
+    margin: 0 0 60px 0;
+    padding-left: 100px;
+
+    animation-name: alcim;
+    animation-duration: 3.5s;
+}
+#loader {
+    height: 2px;
+    width: 15px;
+    margin: 0 auto;
+    fill: red;
+}
+
+div{
+    border-style: solid;
+    border-radius: 5px;
+}
+#terkep_befog{
+    background-color: gray;
+}
+#jatek_befog{
+    border: none;
+    margin: 0 20px;
+}
+#kviz_befog{
+    display: none;
+    padding: 20px;
+    background-color: gray;
+}
+#csapat_megad_befog{
+    display: block;   
+    padding: 20px;
+    background-color: gray;
+}
+#kerdesek_befog{
+    display: none;
+    padding: 20px;
+    background-color: gray;
+}
+
+#leaderboard{
+    padding: 20px;
+    background-color: gray;
+}
+table{
+    margin: auto;
+    text-align: center;
+}
+button{
+    background-color: white;
+    padding: 6px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+input{
+    margin-top: 10px;
+    padding: 5px;
+    background-color: lightgray;
+}
+
+#lista_Big33{
+    background-color: red;
+}
+#lista_ICU{
+    background-color: green;
+}
+#lista_Nameless{
+    background-color: yellow;
+}
+#lista_LoremIpsum{
+    background-color: blue;
+}
+#lista_AlreadyTaken{
+    background-color: orange;
+}
+#lista_Ossznep{
+    background-color: brown;
+}
+#lista_Text{
+    background-color: pink;
+}
+#lista_Angela{
+    background-color: purple;
+}
+
+/* ANIMACIOK */
+
+@keyframes hatterszin {
+    0% {background-color: black;}
+    30% {background-color: black;}
+    100% {background-color: #8CA336;}
+}
+
+@keyframes focim {
+    0% {color: white;}
+    30% {color: white;}
+    100% {color: #E3F4A3;}
+}
+
+@keyframes alcim {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes loader {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
