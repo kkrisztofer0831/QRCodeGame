@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        app:srcCompat="@drawable/_e294f9a380af9e4c1a20fb9e3fcfd5acb88f297da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd807095aea0d02526cc69f0c02360c5485191e" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:gravity="center"
+        android:text="BEJELENTKEZÉS"
+        android:textColor="#C88013"
+        android:textSize="23sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <Button
+        android:id="@+id/joinTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BABABA"
+        android:onClick="joinTeamClick"
+        android:text="Csatalakozás egy meglévő csapathoz"
+        android:textColor="#000000" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="65dp" />
+
+    <Button
+        android:id="@+id/newTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFBABABA"
+        android:text="Új csapat létrehozása"
+        android:textColor="#000000" />
+
+</LinearLayout>
