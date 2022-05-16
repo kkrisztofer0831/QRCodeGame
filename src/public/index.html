@@ -7,7 +7,39 @@
     <script src="javascript.js"></script>
 
     <script type="module">
-        const CSS_COLOR_NAMES = ["blue","red","green","yellow","purple","white","darkorange","black","gray","pink","azure","brown","lightsalmon"];
+        const CSS_COLOR_NAMES = [
+            "blue",
+            "red",
+            "green",
+            "yellow",
+            "purple",
+            "white",
+            "darkorange",
+            "black",
+            "gray",
+            "pink",
+            "azure",
+            "brown",
+            "lightsalmon",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+        ];
         var colorindex = 0;
         
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
@@ -62,38 +94,38 @@
                     '               return Math.floor(Math.random() * max);  '  + 
                     '          }\n' ; 
 
-            updateScripts += 'function updateTeamLocation(ref_allomas, dom_team, cim_team){  '  + 
+            updateScripts += 'function updateTeamLocation(ref_allomas, dom_team){  '  + 
                     '               onValue(ref_allomas, (snapshot) => {  '  + 
                     '                   const data = snapshot.val();  '  + 
                     '                   switch(data) {  '  + 
                     '                       case "A_epulet":  '  + 
                     '                       {  '  + 
-                    '                           var koordX = 95+(getRandomInt(6)-getRandomInt(6));  '  + 
-                    '                           var koordY = 30+(getRandomInt(6)-getRandomInt(6));  '  + 
+                    '                           var koordX = 95+(getRandomInt(8)-getRandomInt(8));  '  + 
+                    '                           var koordY = 30+(getRandomInt(8)-getRandomInt(8));  '  + 
                     '                           dom_team.setAttribute("cx" , koordX);  '  + 
                     '                           dom_team.setAttribute("cy" , koordY);  '  + 
                     '                           break;  '  + 
                     '                       }  '  + 
                     '                       case "K_epulet":  '  + 
                     '                       {  '  + 
-                    '                           var koordX = 125+(getRandomInt(6)-getRandomInt(6));  '  + 
-                    '                           var koordY = 90+(getRandomInt(6)-getRandomInt(6));  '  + 
+                    '                           var koordX = 125+(getRandomInt(8)-getRandomInt(8));  '  + 
+                    '                           var koordY = 90+(getRandomInt(8)-getRandomInt(8));  '  + 
                     '                           dom_team.setAttribute("cx" , koordX);  '  + 
                     '                           dom_team.setAttribute("cy" , koordY);  '  + 
                     '                           break;  '  + 
                     '                       }  '  + 
                     '                       case "Aula":  '  + 
                     '                       {  '  + 
-                    '                           var koordX = 147+(getRandomInt(6)-getRandomInt(6));  '  + 
-                    '                           var koordY = 45+(getRandomInt(6)-getRandomInt(6));  '  + 
+                    '                           var koordX = 147+(getRandomInt(8)-getRandomInt(8));  '  + 
+                    '                           var koordY = 45+(getRandomInt(8)-getRandomInt(8));  '  + 
                     '                           dom_team.setAttribute("cx" , koordX);  '  + 
                     '                           dom_team.setAttribute("cy" , koordY);  '  + 
                     '                           break;  '  + 
                     '                       }  '  + 
                     '                       case "I_epulet":  '  + 
                     '                       {  '  + 
-                    '                           var koordX = 23+(getRandomInt(6)-getRandomInt(6));  '  + 
-                    '                           var koordY = 40+(getRandomInt(6)-getRandomInt(6));  '  + 
+                    '                           var koordX = 23+(getRandomInt(8)-getRandomInt(8));  '  + 
+                    '                           var koordY = 40+(getRandomInt(8)-getRandomInt(8));  '  + 
                     '                           dom_team.setAttribute("cx" , koordX);  '  + 
                     '                           dom_team.setAttribute("cy" , koordY);  '  + 
                     '                           break;  '  + 
@@ -112,8 +144,8 @@
                 var random_rgb_color = CSS_COLOR_NAMES[colorindex];
                 colorindex++;
                 console.log(random_rgb_color);
-
-                svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"></circle></circle><text text-anchor=\"middle\" fill=\"white\" font-size=\"5px\" dy=\".3em\">"+ csapatNev+ "</text>"; 
+                console.log(csapatNev);
+                svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"><title>" + csapatNev + "</title></circle>"; 
 
                 var pontszamLista = document.getElementById("csapat_lista");
                 pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1>' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
@@ -126,14 +158,14 @@
 
                 updateScripts += 'var mezo_' + csapatNev + '_allomas = "csapatok/' + csapatNev + '/Allomas";\n';
                 updateScripts += 'var ref_' + csapatNev + '_allomas = ref(db, mezo_'+ csapatNev +'_allomas );\n';
-                updateScripts += 'var dom_' + csapatNev + '_allomas = document.getElementById("' + csapatNev + '" + "_avatar");';
-                updateScripts += 'updateTeamLocation(ref_' + csapatNev + '_allomas, dom_' + csapatNev +'_allomas");';
+                updateScripts += 'var dom_' + csapatNev + '_allomas = document.getElementById("' + csapatNev + '" + "_avatar");'
+                updateScripts += 'updateTeamLocation(ref_' + csapatNev + '_allomas, dom_' + csapatNev +'_allomas);';
                 updateScripts += '\n\n';
             }
             var js = document.createElement("script");
             js.type = "module";
             js.innerHTML = updateScripts;
-            document.getElementsByTagName("head")[0].appendChild(js);
+            document.getElementsByTagName('head')[0].appendChild(js);
         } else {
             window.alert("Hiba történt!");
             }
@@ -158,7 +190,7 @@
             <ul>
                 <li onclick="terkepfull()">Térkép</li>
                 <li onclick="elolista()">Élő adatok</li>
-                <li onclick="ranglista()">Ranglista</li>
+                <li onclick="ranglista()">Játékleírás</li>
             </ul>
         </nav>
     </div>
@@ -238,7 +270,6 @@
 
                 <td id="elolista">
                     <div id="elolista_cont"><div id="leaderboard">
-                        <h1>leaderboard</h1>
                         <ul id="csapat_lista">
                             
                         </ul>
@@ -246,16 +277,8 @@
                 </td>
                 <td id="ranglista">
                     <div id="ranglista_cont"><div id="leaderboard">
-                        <h1>leaderboard</h1>
-                        <ul id="csapat_lista">
-                            <li id="lista_Big33"><h1>Big33:           <span id="Big33_pontszam">0</span>/4</h1></li>
-                            <li id="lista_ICU"><h1>ICU:             <span id="ICU_pontszam">0</span>/4</h1></li>
-                            <li id="lista_Nameless"><h1>Nameless:        <span id="Nameless_pontszam">0</span>/4</h1></li>
-                            <li id="lista_LoremIpsum"><h1>LoremIpsum:      <span id="LoremIpsum_pontszam">0</span>/4</h1></li>
-                            <li id="lista_AlreadyTaken"><h1>AlreadyTaken:    <span id="AlreadyTaken_pontszam">0</span>/4</h1></li>
-                            <li id="lista_Ossznep"><h1>Ossznep:         <span id="Ossznep_pontszam">0</span>/4</h1></li>
-                            <li id="lista_Text"><h1>Text:            <span id="Text_pontszam">0</span>/4</h1></li>
-                            <li id="lista_Angela"><h1>Angela:          <span id="Angela_pontszam">0</span>/4</h1></li>
+                        <h1>Játékleírás</h1>
+                        
                         </ul>
                     </div></div>
                 </td>

@@ -34,8 +34,6 @@ h2{
     
     animation-name: focim;
     animation-duration: 3s;
-    
-    cursor: default;
 }
 h3{
     color: #ADC964;
@@ -44,7 +42,6 @@ h3{
     animation-duration: 3.5s;
     margin: 0;
     padding-left:10%;
-    cursor: default;
 }
 #loader {
     height: 0%;
@@ -91,7 +88,7 @@ h3{
 nav {
     position: absolute;
     right: 0;
-    width: 50%;
+    width: 60%;
     height: 5vh;
 }
 nav ul li {
@@ -105,8 +102,6 @@ nav ul li {
     margin-right: 20%;
     margin-top: 1%;
     transition: 0.5s;
-    
-    cursor: pointer;
 }
 nav ul li:hover {
     opacity: 60%;
@@ -152,9 +147,7 @@ g {
 #ranglista_cont {
     display:none;    
 }
-h1 {
-    cursor: default;
-}
+
 
 /* ANIMACIOK */
 
@@ -227,9 +220,7 @@ h1 {
     z-index: 100;
     paint-order:markers;
 }
-.forma text {
-    fill: none;
-}
+
 @keyframes mozgas {
     0% {r: 2;filter:saturate(100%);}
     30% {r: 2.1; filter:saturate(120%);}
@@ -238,4 +229,15 @@ h1 {
     75% {r: 2.3; filter:saturate(180%);}
     85% {r: 2;filter:saturate(100%);}
     100% { r: 2;filter:saturate(100%);}
+}
+.leaderboard li {
+    background-color: #5D7814;
+}
+#elolista {
+    color: white;
+}
+
+#ranglista {
+    color: white;
+
 }
