@@ -34,6 +34,8 @@ h2{
     
     animation-name: focim;
     animation-duration: 3s;
+    
+    cursor: default;
 }
 h3{
     color: #ADC964;
@@ -42,6 +44,7 @@ h3{
     animation-duration: 3.5s;
     margin: 0;
     padding-left:10%;
+    cursor: default;
 }
 #loader {
     height: 0%;
@@ -102,6 +105,8 @@ nav ul li {
     margin-right: 20%;
     margin-top: 1%;
     transition: 0.5s;
+    
+    cursor: pointer;
 }
 nav ul li:hover {
     opacity: 60%;
@@ -147,7 +152,9 @@ g {
 #ranglista_cont {
     display:none;    
 }
-
+h1 {
+    cursor: default;
+}
 
 /* ANIMACIOK */
 
@@ -201,4 +208,31 @@ g {
     0% {top: -20%; }
     60% {top: -20%;}
     100% {top: 0;}
+}
+
+.forma {
+    r: 2;
+    animation-name: mozgas;
+    animation-duration: 4s;
+    transition-duration: 2s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    stroke-width: 0px;
+    stroke-opacity: 0;
+    z-index: 1;
+}
+.forma:hover {
+    stroke-width: 10px;
+    stroke-opacity: 1;
+    z-index: 100;
+    paint-order:markers;
+}
+@keyframes mozgas {
+    0% {r: 2;filter:saturate(100%);}
+    30% {r: 2.1; filter:saturate(120%);}
+    40% {r: 2;filter:saturate(100%);}
+    60% {r: 2; filter:saturate(100%);}
+    75% {r: 2.3; filter:saturate(180%);}
+    85% {r: 2;filter:saturate(100%);}
+    100% { r: 2;filter:saturate(100%);}
 }

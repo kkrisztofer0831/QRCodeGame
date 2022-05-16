@@ -7,6 +7,41 @@
     <script src="javascript.js"></script>
 
     <script type="module">
+        const CSS_COLOR_NAMES = [
+            "blue",
+            "red",
+            "green",
+            "yellow",
+            "purple",
+            "white",
+            "darkorange",
+            "black",
+            "gray",
+            "pink",
+            "azure",
+            "brown",
+            "lightsalmon",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+        ];
+        var colorindex = 0;
+        
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
         import { getDatabase, ref, onValue, get, set, child, increment } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
 
@@ -103,13 +138,14 @@
             for (let [csapatNev, adatai] of csapatEntries) {
 
                 var svg_alap_vaszon = document.getElementById("karika");
-                var red = getRandomInt(255);
-                var green = getRandomInt(255);
-                var blue = getRandomInt(255);
-                var random_rgb_color = 'rgb(' + red + ', ' + green + ' ,' + blue + ')';
+                //var red = getRandomInt(10)*25.5;
+                //var green = getRandomInt(10)*25.5;
+                //var blue = getRandomInt(10)*25.5;
+                var random_rgb_color = CSS_COLOR_NAMES[colorindex];
+                colorindex++;
                 console.log(random_rgb_color);
 
-                svg_alap_vaszon.innerHTML += "<circle id=\"" + csapatNev + "_avatar\" r=\"2\" fill=\"" + random_rgb_color + "\"> </circle>"; 
+                svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"></circle> <text x=\"50%\" y=\"50%\" text-anchor=\"middle\" fill=\"white\" font-size=\"5px\" dy=\".3em\">" + csapatNev + "</text></circle><title>" + csapatNev + "</title>"; 
 
                 var pontszamLista = document.getElementById("csapat_lista");
                 pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1>' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
@@ -139,6 +175,8 @@
 
     </script>
 </head>
+
+
 <body>
     <div id="title-holder">
         <h2> The QR Game</h1>
@@ -156,9 +194,12 @@
             </ul>
         </nav>
     </div>
+
+
     <div id="contents">
         <table>
             <tr>
+
                 <td id="terkep">
                         <svg id="karika" width="100%" height="88vh" viewBox="0 0 200 110">
                             <rect id="I_epulet"             width="40"  height="35" x="4" y="4"></rect>
@@ -226,6 +267,7 @@
                         </svg>
                     </div>
                 </td>
+
                 <td id="elolista">
                     <div id="elolista_cont"><div id="leaderboard">
                         <h1>leaderboard</h1>
@@ -249,6 +291,7 @@
                         </ul>
                     </div></div>
                 </td>
+                
             </tr>
         </table>
     </div>
