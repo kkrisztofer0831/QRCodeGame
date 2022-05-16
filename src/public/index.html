@@ -7,39 +7,7 @@
     <script src="javascript.js"></script>
 
     <script type="module">
-        const CSS_COLOR_NAMES = [
-            "blue",
-            "red",
-            "green",
-            "yellow",
-            "purple",
-            "white",
-            "darkorange",
-            "black",
-            "gray",
-            "pink",
-            "azure",
-            "brown",
-            "lightsalmon",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-        ];
+        const CSS_COLOR_NAMES = ["blue","red","green","yellow","purple","white","darkorange","black","gray","pink","azure","brown","lightsalmon"];
         var colorindex = 0;
         
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
@@ -94,7 +62,7 @@
                     '               return Math.floor(Math.random() * max);  '  + 
                     '          }\n' ; 
 
-            updateScripts += 'function updateTeamLocation(ref_allomas, dom_team){  '  + 
+            updateScripts += 'function updateTeamLocation(ref_allomas, dom_team, cim_team){  '  + 
                     '               onValue(ref_allomas, (snapshot) => {  '  + 
                     '                   const data = snapshot.val();  '  + 
                     '                   switch(data) {  '  + 
@@ -145,7 +113,7 @@
                 colorindex++;
                 console.log(random_rgb_color);
 
-                svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"></circle> <text x=\"50%\" y=\"50%\" text-anchor=\"middle\" fill=\"white\" font-size=\"5px\" dy=\".3em\">" + csapatNev + "</text></circle><title>" + csapatNev + "</title>"; 
+                svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"></circle></circle><text text-anchor=\"middle\" fill=\"white\" font-size=\"5px\" dy=\".3em\">"+ csapatNev+ "</text>"; 
 
                 var pontszamLista = document.getElementById("csapat_lista");
                 pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1>' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
@@ -158,14 +126,14 @@
 
                 updateScripts += 'var mezo_' + csapatNev + '_allomas = "csapatok/' + csapatNev + '/Allomas";\n';
                 updateScripts += 'var ref_' + csapatNev + '_allomas = ref(db, mezo_'+ csapatNev +'_allomas );\n';
-                updateScripts += 'var dom_' + csapatNev + '_allomas = document.getElementById("' + csapatNev + '" + "_avatar");'
-                updateScripts += 'updateTeamLocation(ref_' + csapatNev + '_allomas, dom_' + csapatNev +'_allomas);';
+                updateScripts += 'var dom_' + csapatNev + '_allomas = document.getElementById("' + csapatNev + '" + "_avatar");';
+                updateScripts += 'updateTeamLocation(ref_' + csapatNev + '_allomas, dom_' + csapatNev +'_allomas");';
                 updateScripts += '\n\n';
             }
             var js = document.createElement("script");
             js.type = "module";
             js.innerHTML = updateScripts;
-            document.getElementsByTagName('head')[0].appendChild(js);
+            document.getElementsByTagName("head")[0].appendChild(js);
         } else {
             window.alert("Hiba történt!");
             }
