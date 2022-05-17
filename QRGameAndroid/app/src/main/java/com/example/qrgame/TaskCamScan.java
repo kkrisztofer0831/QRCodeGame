@@ -85,8 +85,6 @@ public class TaskCamScan extends AppCompatActivity implements ZXingScannerView.R
         final String rawresult = result.getText();
         writeToFile("feladat.txt", rawresult);
         startActivity(new Intent(TaskCamScan.this, Task.class));
-
-
     }
 
     public void writeToFile(String filename, String content){

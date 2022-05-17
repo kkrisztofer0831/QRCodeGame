@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,18 +20,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class GameDashboard extends AppCompatActivity {
 
     TextView csapatNev;
     TextView pontszam;
+    Button qrScan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_dashboard);
 
+        qrScan = findViewById(R.id.qrScan);
         csapatNev = findViewById(R.id.csapatNev);
         pontszam = findViewById(R.id.pontszam);
 
@@ -42,7 +46,8 @@ public class GameDashboard extends AppCompatActivity {
         teamRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String pointNum = snapshot.child("Pontszam").getValue().toString();
+                String pointNum = snapshot.child("pontszam").getValue().toString();
+                writeToFile("pontszam.txt", pointNum);
                 pontszam.setText("Aktuális pontszám: " + pointNum);
             }
 
@@ -52,7 +57,12 @@ public class GameDashboard extends AppCompatActivity {
             }
         });
 
-
+        qrScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(GameDashboard.this, TaskCamScan.class));
+            }
+        });
 
     }
 
@@ -68,6 +78,19 @@ public class GameDashboard extends AppCompatActivity {
         } catch (Exception e) {
             Log.d("HIBA", e.toString());
             return e.toString();
+        }
+    }
+
+    public void writeToFile(String filename, String content){
+        File path = getApplicationContext().getFilesDir();
+        try {
+            FileOutputStream writer = new FileOutputStream(new File(path, filename));
+            writer.write(content.getBytes());
+            Log.d("Hely", path.toString());
+        } catch (FileNotFoundException e) {
+            Log.d("HIBA", e.toString());
+        } catch (IOException e) {
+            Log.d("HIBA", e.toString());
         }
     }
 

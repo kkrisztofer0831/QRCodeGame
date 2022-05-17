@@ -13,6 +13,11 @@ public class csapat {
         this.Pontszam = Pontszam;
     }
 
+    public csapat(String Allomas, Integer Pontszam){
+        this.Allomas = Allomas;
+        this.Pontszam = Pontszam;
+    }
+
 
     public String getAllomas() {
         return Allomas;
