@@ -21,25 +21,7 @@
             "azure",
             "brown",
             "lightsalmon",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-        ];
+            ];
         var colorindex = 0;
         
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js';
@@ -150,13 +132,13 @@
                 var pontszamLista = document.getElementById("csapat_lista");
                 pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1>' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
                 
-                updateScripts += 'var mezo_' + csapatNev + '_pontszam = "csapatok/' + csapatNev + '/Pontszam";\n';
+                updateScripts += 'var mezo_' + csapatNev + '_pontszam = "csapatok/' + csapatNev + '/pontszam";\n';
                 updateScripts += 'var ref_' + csapatNev + '_pontszam = ref(db, mezo_'+ csapatNev +'_pontszam);\n';
                 updateScripts += 'var dom_' + csapatNev + '_pontszam = document.getElementById("' + csapatNev + '" + "_pontszam");'
                 updateScripts += 'updatePontszam(ref_' + csapatNev + '_pontszam, dom_' + csapatNev +'_pontszam);';
                 updateScripts += '\n\n'
 
-                updateScripts += 'var mezo_' + csapatNev + '_allomas = "csapatok/' + csapatNev + '/Allomas";\n';
+                updateScripts += 'var mezo_' + csapatNev + '_allomas = "csapatok/' + csapatNev + '/allomas";\n';
                 updateScripts += 'var ref_' + csapatNev + '_allomas = ref(db, mezo_'+ csapatNev +'_allomas );\n';
                 updateScripts += 'var dom_' + csapatNev + '_allomas = document.getElementById("' + csapatNev + '" + "_avatar");'
                 updateScripts += 'updateTeamLocation(ref_' + csapatNev + '_allomas, dom_' + csapatNev +'_allomas);';
