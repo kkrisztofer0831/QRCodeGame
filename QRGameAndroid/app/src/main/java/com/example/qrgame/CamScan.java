@@ -138,7 +138,6 @@ public class CamScan extends AppCompatActivity implements ZXingScannerView.Resul
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
-        builder.setMessage(rawresult);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which){
