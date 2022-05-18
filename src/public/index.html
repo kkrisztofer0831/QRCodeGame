@@ -130,7 +130,7 @@
                 svg_alap_vaszon.innerHTML += " <circle id=\"" + csapatNev + "_avatar\" class=\"forma\" height=\"10\" width=\"10\" style=\"animation-delay:" + getRandomInt(10)*0.13 + "s\" fill=\"" + random_rgb_color + "\" stroke=\"" +  random_rgb_color + "\"><title>" + csapatNev + "</title></circle>"; 
 
                 var pontszamLista = document.getElementById("csapat_lista");
-                pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1>' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
+                pontszamLista.innerHTML += '<li id="lista_' + csapatNev + '"><h1 style="color: '+ random_rgb_color + '">' + csapatNev + ':         <span id="' + csapatNev +'_pontszam">0</span>/4</h1></li>';
                 
                 updateScripts += 'var mezo_' + csapatNev + '_pontszam = "csapatok/' + csapatNev + '/pontszam";\n';
                 updateScripts += 'var ref_' + csapatNev + '_pontszam = ref(db, mezo_'+ csapatNev +'_pontszam);\n';
@@ -172,7 +172,6 @@
             <ul>
                 <li onclick="terkepfull()">Térkép</li>
                 <li onclick="elolista()">Élő adatok</li>
-                <li onclick="ranglista()">Játékleírás</li>
             </ul>
         </nav>
     </div>
